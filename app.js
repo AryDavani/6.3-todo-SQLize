@@ -27,7 +27,7 @@ app.post('/', function(req, res) {
 
   models.Todo.create(
     {item: newItem,
-    assigned_to: assignee}
+    assignedto: assignee}
   ).then(function() {
     models.Todo.findAll().then(function(todos) {
       res.render('index', {todos: todos});
