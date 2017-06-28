@@ -11,22 +11,28 @@
 
       <form class="" action="/" method="post">
         <input type="text" name="todo" value="" placeholder="Add a todo...">
+        <input type="text" name="assignee" value="" placeholder="For person...">
         <input type="submit" name="" value="Add todo!">
       </form>
 
       <h4>Current Todos:</h4>
-      {{#todos}}
-        <form class="" action="/" method="post">
-          <input type="submit" name="" value="Mark Complete">
-          <span>{{item}}</span>
-        </form>
-      {{/todos}}
+        {{#todos}}
+          {{^completed_at}}
+            <form class="" action="/complete" method="post">
+              <input type="hidden" name="id" value="{{id}}">
+              <input type="submit" name="" value="Mark Complete">
+              <span>{{item}} - {{assigned_to}}</span>
+            </form>
+          {{/completed_at}}
+        {{/todos}}
 
       <h4>Completed Todos</h4>
       <ul>
-        {{#completed}}
-          <li>{{.}}</li>
-        {{/completed}}
+      {{#todos}}
+        {{#completed_at}}
+          <li>{{item}}</li>
+        {{/completed_at}}
+      {{/todos}}
       </ul>
 
   </body>

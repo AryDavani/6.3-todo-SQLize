@@ -7,10 +7,10 @@ module.exports = {
       'assigned_to',
       {
         type: Sequelize.STRING,
-        defaultValue: "me",
+        defaultValue: 'me',
         allowNull: false
-      });
-    },
+      })
+  },
 
   down: function (queryInterface, Sequelize) {
     return queryInterface.removeColumn('Todos', 'assigned_to');
