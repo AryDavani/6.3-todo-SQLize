@@ -13,7 +13,6 @@ app.set('views', './views');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-
 app.get('/', function(req, res) {
 
   models.Todo.findAll().then(function(todos) {
@@ -47,5 +46,9 @@ app.post('/complete', function(req, res) {
     });
   });
 });
+
+app.post('/clear', function(req, res) {
+
+})
 
 app.listen(3000);

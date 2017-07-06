@@ -32,6 +32,9 @@
         {{/todos}}
 
       <h5 class="left-align green-text text-darken-3">Completed Todos:</h5>
+      <form class="" action="/clear" method="post">
+        <input class="btn red" type="submit" name="" value="Clear All">
+      </form>
       <ul class="left-align browser-default">
       {{#todos}}
         {{#completed_at}}
