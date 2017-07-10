@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Todos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <div class="container">
@@ -17,31 +18,38 @@
       </form>
 
       <h5 class="left-align red-text text-darken-3">Current Todos:</h5>
-        {{#todos}}
-          {{^completed_at}}
-            <form class="" action="/complete" method="post">
-              <input type="hidden" name="id" value="{{id}}">
-              <div class="section">
-                <input class="btn" type="submit" name="" value="Mark Complete">
-                <ul class="browser-default">
-                  <li><h5>{{item}} - {{assignedto}}</h5></li>
-                </ul>
-              </div>
-            </form>
-          {{/completed_at}}
-        {{/todos}}
+      {{#todos}}
+      {{^completed_at}}
+      <ul>
+        <li>
+          <form class="" action="/complete" method="post">
+            <input type="hidden" name="id" value="{{id}}">
+            <div class="section">
+              <input class="blue darken-3 btn" type="submit" name="" value="Mark Complete">
+            </div>
+          </form>
+          <form class="" action="/edit" method="post">
+            <input type="hidden" name="id" value="{{id}}">
+            <div class="section">
+              <input id="item" type="text" name="item" value="{{item}}">
+              <input id="for" type="text" name="assignedto" value="{{assignedto}}">
+              <input type="submit" name="" value="" hidden>
+            </div>
+          </form>
+        </li>
+      </ul>
+      {{/completed_at}}
+      {{/todos}}
 
       <h5 class="left-align green-text text-darken-3">Completed Todos:</h5>
-      <form class="" action="/clear" method="post">
-        <input class="btn red" type="submit" name="" value="Clear All">
-      </form>
+
       <ul class="left-align browser-default">
-      {{#todos}}
+        {{#todos}}
         {{#completed_at}}
-          <li><h5>{{item}}</h5></li>
+        <li><h5>{{item}}</h5></li>
         {{/completed_at}}
-      {{/todos}}
+        {{/todos}}
       </ul>
 
-  </body>
+    </body>
 </html>
