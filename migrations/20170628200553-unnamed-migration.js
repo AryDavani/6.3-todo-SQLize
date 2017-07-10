@@ -4,7 +4,7 @@ module.exports = {
   up: function (queryInterface, Sequelize) {
     return queryInterface.addColumn(
       'Todos',
-      'assigned_to',
+      'assignedto',
       {
         type: Sequelize.STRING,
         defaultValue: 'me',
