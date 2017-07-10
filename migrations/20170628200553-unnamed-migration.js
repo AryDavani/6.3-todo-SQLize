@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: 'me',
         allowNull: false
-      })
+      });
   },
 
   down: function (queryInterface, Sequelize) {
